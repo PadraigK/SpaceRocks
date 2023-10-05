@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cku3jgr1ytuep"]
+
+[ext_resource type="Texture2D" uid="uid://dl25gk3u6j1rn" path="res://assets/laser.png" id="1_x43re"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34rok"]
+radius = 2.0
+height = 28.0
+
+[node name="Bullet" type="Bullet"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_x43re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_34rok")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

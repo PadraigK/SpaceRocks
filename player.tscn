@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://082w5337ndy2"]
+
+[ext_resource type="Texture2D" uid="uid://c8bi3ht56do5u" path="res://assets/player_ship.png" id="1_xqv24"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyljq"]
+radius = 30.4138
+
+[node name="Player" type="Player"]
+linear_damp = 1.0
+angular_damp = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xqv24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lyljq")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(50, 2.08165e-12)
+
+[node name="GunCooldown" type="Timer" parent="."]
+one_shot = true
+autostart = true

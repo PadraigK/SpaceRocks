@@ -1,0 +1,23 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "swift build"
+    },
+    "clean" : {
+      "enabled" : true,
+      "postActions" : [
+        {
+          "script" : "",
+          "type" : "runScript"
+        }
+      ],
+      "script" : "swift package clean"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\n\n.\/Scripts\/install.sh SpaceRocks"
+    }
+  },
+  "buildBeforeRunning" : true
+}

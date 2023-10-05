@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "sghelpers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PadraigK/SGHelpers",
+      "state" : {
+        "branch" : "main",
+        "revision" : "72a81bc7ee14a301f7a175a576a99b8073200a2e"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "74203046135342e4a4a627476dd6caf8b28fe11b",
+        "version" : "509.0.0"
+      }
+    },
+    {
+      "identity" : "swiftgodot",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PadraigK/SwiftGodot",
+      "state" : {
+        "branch" : "main",
+        "revision" : "94698d36c79df8e495de10d0e4fb9db090c62631"
+      }
+    },
+    {
+      "identity" : "xmlcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoreOffice/XMLCoder",
+      "state" : {
+        "revision" : "b1e944cbd0ef33787b13f639a5418d55b3bed501",
+        "version" : "0.17.1"
+      }
+    }
+  ],
+  "version" : 2
+}
