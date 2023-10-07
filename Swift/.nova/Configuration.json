@@ -1,4 +1,10 @@
 {
+  "index.ignored_file_patterns" : [
+    ".build\/arm64*",
+    ".build\/artifacts",
+    ".build\/repositories"
+  ],
+  "index.use_scm_ignored_files" : false,
   "workspace.art_style" : 1,
   "workspace.color" : 6,
   "workspace.name" : "SpaceRocks Swift Driver"

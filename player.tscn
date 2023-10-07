@@ -1,11 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://082w5337ndy2"]
+[gd_scene load_steps=12 format=3 uid="uid://082w5337ndy2"]
 
 [ext_resource type="Texture2D" uid="uid://c8bi3ht56do5u" path="res://assets/player_ship.png" id="1_xqv24"]
+[ext_resource type="PackedScene" uid="uid://b7ouctphkibi3" path="res://explosion.tscn" id="2_fghge"]
+[ext_resource type="AudioStream" uid="uid://blicgs11u6mbt" path="res://assets/sounds/laser.ogg" id="3_72uy6"]
+[ext_resource type="AudioStream" uid="uid://m2pqqj46yyxi" path="res://assets/sounds/engine.ogg" id="4_ppy4g"]
+[ext_resource type="AudioStream" uid="uid://ox7i1pvumstd" path="res://assets/sounds/explosion.wav" id="5_flkco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lyljq"]
 radius = 30.4138
 
+[sub_resource type="Gradient" id="Gradient_n73l6"]
+offsets = PackedFloat32Array(0, 0.737037)
+colors = PackedColorArray(1, 1, 0, 1, 0.92, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ubt7m"]
+gradient = SubResource("Gradient_n73l6")
+
+[sub_resource type="Curve" id="Curve_1q1ix"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.325301), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_odwxd"]
+curve = SubResource("Curve_1q1ix")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktlfd"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 1)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_odwxd")
+color_ramp = SubResource("GradientTexture1D_ubt7m")
+
 [node name="Player" type="Player"]
+max_contacts_reported = 1
+contact_monitor = true
 linear_damp = 1.0
 angular_damp = 5.0
 
@@ -21,5 +55,33 @@ shape = SubResource("CircleShape2D_lyljq")
 position = Vector2(50, 2.08165e-12)
 
 [node name="GunCooldown" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 autostart = true
+
+[node name="Explosion" parent="." instance=ExtResource("2_fghge")]
+visible = false
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_72uy6")
+volume_db = -5.0
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ppy4g")
+volume_db = -10.0
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_flkco")
+
+[node name="Exhaust" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(-28, 2.08165e-12)
+rotation = 3.14159
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_ktlfd")
+trail_enabled = true
+trail_lifetime = 0.1

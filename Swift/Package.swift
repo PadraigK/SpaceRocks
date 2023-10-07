@@ -3,8 +3,6 @@
 
 import PackageDescription
 
-let fork = "PadraigK" // migueldeicaza
-
 let package = Package(
     name: "SpaceRocks",
     platforms: [.macOS(.v13)],
@@ -17,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/PadraigK/SGHelpers", branch: "main"),
-        .package(url: "https://github.com/\(fork)/SwiftGodot", branch: "main"),
+        .package(url: "https://github.com/migueldeicaza/SwiftGodot", branch: "main"),
     ],
     targets: [
         .target(
@@ -25,7 +23,6 @@ let package = Package(
             dependencies: [
                 "SwiftGodot",
                 "SGHelpers",
-                .product(name: "SwiftGodotMacros", package: "SwiftGodot"),
             ],
             swiftSettings: [.unsafeFlags(["-suppress-warnings"])],
             linkerSettings: [

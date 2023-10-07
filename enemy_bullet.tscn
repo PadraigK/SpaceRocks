@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://fjmg4k8kyg57"]
+
+[ext_resource type="Texture2D" uid="uid://c5e64r0qby8x7" path="res://assets/laser_green.png" id="1_fjb3y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34rok"]
+radius = 1.1
+height = 25.48
+
+[node name="EnemyBullet" type="EnemyBullet"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -0.01)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fjb3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.76, 0.9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_34rok")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(1.35, 0.3)

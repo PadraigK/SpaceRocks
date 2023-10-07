@@ -6,7 +6,7 @@
       "location" : "https://github.com/PadraigK/SGHelpers",
       "state" : {
         "branch" : "main",
-        "revision" : "72a81bc7ee14a301f7a175a576a99b8073200a2e"
+        "revision" : "19ac015ab91e59240bdacb3bdfc53ae451387a6b"
       }
     },
     {
@@ -21,10 +21,10 @@
     {
       "identity" : "swiftgodot",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/PadraigK/SwiftGodot",
+      "location" : "https://github.com/migueldeicaza/SwiftGodot",
       "state" : {
         "branch" : "main",
-        "revision" : "94698d36c79df8e495de10d0e4fb9db090c62631"
+        "revision" : "0f5926b8532de718fbcd2d0d97d4b7f431e40085"
       }
     },
     {

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhtcg7ciy0iao"]
+
+[ext_resource type="PackedScene" uid="uid://082w5337ndy2" path="res://player.tscn" id="1_88xdf"]
+[ext_resource type="PackedScene" uid="uid://bq4wyirvnqrrh" path="res://hud.tscn" id="2_fpty4"]
+[ext_resource type="AudioStream" uid="uid://ox7i1pvumstd" path="res://assets/sounds/explosion.wav" id="3_ydfdp"]
+[ext_resource type="AudioStream" uid="uid://dltoblhf8x4kg" path="res://assets/sounds/levelup.ogg" id="4_muoij"]
+[ext_resource type="AudioStream" uid="uid://beis6l6pimki7" path="res://assets/sounds/Funky-Gameplay_Looping.ogg" id="5_yomec"]
+[ext_resource type="Texture2D" uid="uid://b088wppk1kpcf" path="res://assets/space_background.png" id="6_eunqm"]
+
+[sub_resource type="Curve2D" id="Curve2D_doi8x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="MainScene" type="MainScene"]
+process_mode = 3
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("6_eunqm")
+offset = Vector2(500, 200)
+
+[node name="Player" parent="." instance=ExtResource("1_88xdf")]
+
+[node name="RockPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_doi8x")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RockPath"]
+position = Vector2(0, 28.8421)
+rotation = -1.5708
+progress = 3571.14
+
+[node name="HUD" parent="." instance=ExtResource("2_fpty4")]
+
+[node name="EnemyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ydfdp")
+
+[node name="LevelUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_muoij")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yomec")
