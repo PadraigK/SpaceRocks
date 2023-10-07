@@ -51,7 +51,7 @@ extension Texture2D {
 
     @Callable func updateShield(to shieldPercent: Double) {
         switch shieldPercent {
-        case 0.0 ..< 0.4:
+        case -.infinity ..< 0.4:
             shieldBar.textureProgress = .red
         case 0.4 ..< 0.7:
             shieldBar.textureProgress = .yellow
